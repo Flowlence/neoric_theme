@@ -71,6 +71,11 @@
         {{- translation_key | t -}}
       {%- endif -%}
     </span>
+    {% if status == 'in_stock' and product.metafields.custom.delivery_time_days != blank %}
+      <span>
+        {{ product.metafields.custom.delivery_time_days }}
+      </span>
+    {% endif %}
   </span>
 </product-inventory>
 
