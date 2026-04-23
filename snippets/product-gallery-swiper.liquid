@@ -1,0 +1,26 @@
+<div class="product-gallery-swiper">
+  <div class="swiper product-gallery-swiper_thumbs">
+    <div class="swiper-wrapper">
+      {% for media in product.media %}
+        <div class="swiper-slide">
+          {{ media | image_url: width: 100 | image_tag }}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="swiper product-gallery-swiper_main">
+    <div class="swiper-wrapper">
+      {% for media in product.media %}
+        <div class="swiper-slide">
+          {{ media | image_url: width: 480 | image_tag }}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
