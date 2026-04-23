@@ -44,6 +44,7 @@
     {% render 'typography-style', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}
     --width: {{ block_settings.width }};
+    flex-direction: row;
   "
   {{ block.shopify_attributes }}
 >
@@ -54,7 +55,7 @@
   %}
 
   {% if block_settings.show_tax_info %}
-    <div class="tax-note">
+    <span class="tax-note" style="align-self: end; font-size: 10px; color: #000;">
       {%- if cart.duties_included and cart.taxes_included -%}
         {{ 'content.duties_and_taxes_included' | t }}
       {%- elsif cart.taxes_included -%}
@@ -66,7 +67,7 @@
       {%- if shop.shipping_policy.body != blank -%}
         {{ 'content.shipping_policy' | t }}
       {%- endif -%}
-    </div>
+    </span>
   {% endif %}
 
   {%- if selected_variant != blank and block_settings.show_installments -%}

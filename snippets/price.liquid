@@ -72,7 +72,7 @@
   endif
 -%}
 
-<div ref="priceContainer">
+<span ref="priceContainer" style="width: initial; white-space: nowrap; padding-right: 6px;">
   {% if has_volume_pricing %}
     {% comment %} Volume pricing display {% endcomment %}
     {% if show_compare_price %}
@@ -87,7 +87,7 @@
     </span>
   {% else %}
     {% comment %} Standard pricing display {% endcomment %}
-    <div
+    <span
       class="
         price__regular
         {% if show_compare_price %}
@@ -96,8 +96,8 @@
       "
     >
       <span class="price">{{ price | default: '&nbsp;' }}</span>
-    </div>
-    <div
+    </span>
+    <span
       class="
         price__sale
         {% unless show_compare_price %}
@@ -124,7 +124,7 @@
           <span class="price-item--sale price">{{ price | default: '&nbsp;' }}</span>
         </span>
       {% endif %}
-    </div>
+    </span>
   {% endif %}
   {%- if selected_variant.unit_price and show_unit_price %}
     {%- liquid
@@ -136,7 +136,7 @@
     -%}
     {% render 'unit-price', price: unit_price, measurement: selected_variant.unit_price_measurement %}
   {%- endif -%}
-</div>
+</span>
 {%- if has_volume_pricing -%}
   <small
     ref="volumePricingNote"

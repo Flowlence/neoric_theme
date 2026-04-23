@@ -2374,7 +2374,8 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) .volume-pricing-note {
 }
 
 .compare-at-price {
-  opacity: 0.4;
+  color: #000;
+  padding-right: 20px;
   text-decoration-line: line-through;
   text-decoration-thickness: 1.5px;
 }
