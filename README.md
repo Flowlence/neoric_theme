@@ -4,7 +4,7 @@ Verwendetes Theme: Horizon
 
 ## Bibliotheken
 
-- Javascript Libraries: aktuell keine genutzt (SwiperJS wäre geeignet die aktuelle Horizon Slideshow zu ersetzen. (Angefangene Implementierung in separatem Feature-Branch)
+- Javascript Libraries: aktuell keine genutzt (SwiperJS wäre geeignet die aktuelle Horizon Slideshow zu ersetzen. (Angefangene Implementierung in separatem Feature-Branch) SwiperJS biete viele Anpassungsmöglichkeiten bzgl. Darstellung, Animation, Responsives Verhalten, etc.
 - Shopify Apps: TinySEO (Bild- und Performance Optimierung)
 
 ## Todos
