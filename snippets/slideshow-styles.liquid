@@ -112,17 +112,14 @@
     }
   }
 
-  slideshow-component[dragging] slideshow-arrows {
-    display: none;
-  }
-
   slideshow-container {
     width: 100%;
-    display: block;
+    display: flex;
     position: relative;
     grid-area: container;
     container-type: inline-size;
     background-color: var(--color-background);
+    flex-direction: column-reverse;
   }
 
   /*

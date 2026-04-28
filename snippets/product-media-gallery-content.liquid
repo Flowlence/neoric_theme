@@ -42,7 +42,7 @@
   if block_settings.slideshow_mobile_controls_style == 'thumbnails'
     assign mobile_controls_on_media = false
   else
-    assign mobile_controls_on_media = true
+    assign mobile_controls_on_media = false
   endif
 
   assign render_slideshow_controls = false
@@ -409,7 +409,8 @@
             controls_on_media: controls_on_media,
             pagination_position: pagination_position,
             aspect_ratio: block_settings.aspect_ratio,
-            thumbnail_radius: block_settings.thumbnail_radius
+            thumbnail_radius: block_settings.thumbnail_radius,
+            arrows_on_media: false
           -%}
         {% endif %}
 
@@ -422,7 +423,8 @@
             controls_on_media: mobile_controls_on_media,
             pagination_position: 'center',
             aspect_ratio: block_settings.aspect_ratio,
-            thumbnail_radius: block_settings.thumbnail_radius
+            thumbnail_radius: block_settings.thumbnail_radius,
+            arrows_on_media: false
           -%}
         {% endif %}
       {% endcapture %}
@@ -441,8 +443,10 @@
       slide_count: sorted_media.size,
       slideshow_arrows: slideshow_arrows,
       arrows_position: icons_position,
-      controls: controls
+      controls: controls,
+      infinite: false
     %}
+   
 
     {% if media_presentation == 'grid' %}
       <ul
@@ -635,6 +639,7 @@
         window.ProductModel.loadShopifyXR();
       </script>
     {%- endif -%}
+
   </media-gallery>
 {% endif %}
 
@@ -1020,6 +1025,12 @@
 
       slideshow-controls[pagination-position='left'] {
         order: -1;
+        display: flex;
+        justify-content: center;
+        /* this is shit, but fixes the additional height gained by slideshow-arrows. 
+         * arrows should be positioned in a different way to avoid this hack
+         */
+        margin-top: -1.5em;
       }
     }
   }
@@ -1027,6 +1038,11 @@
   .media-gallery--carousel slideshow-arrows .slideshow-control {
     padding-inline: 0 var(--padding-md);
     opacity: 1;
+  }
+
+  .media-gallery--carousel slideshow-arrows .slideshow-control[disabled] {
+    padding-inline: 0 var(--padding-md);
+    opacity: .5;
   }
 
   @media screen and (max-width: 749px) {
